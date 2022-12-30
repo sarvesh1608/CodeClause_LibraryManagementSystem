@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Borrower</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body{
+          background-image: url('/images/welcome.jpg');
+          min-height: 100%;
+          background-position: center;
+          background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            </br>
+                <h1 class="text-center">Add Borrower</h1>
+                <div class="card-body">
+                    <div class="form-group">
+                        <form action="/addBorrower" th:object ="${addBorrower}"  method="post">
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                 <select class="form-control" th:field="*{student}" id="student">
+                                	<option value="0">Select Student</option>
+                                	<option th:each="studentRow:${students}" th:value="${studentRow.studId}" th:text="${studentRow.name}"></option>
+                                </select>
+                                <!-- <input type="text" id="studentName" th:field="*{student}" name="student" placeholder="Please enter student name" 
+                                class="form-control" required> -->
+                            </div>
+                            <div>
+                                <label>Department</label>
+                                <input type="text" id="dept" th:field="*{dept}" name="dept" 
+                                placeholder="Please enter department name" class="form-control" required>
+                            </div>
+                            <div>
+                                <label>Book Name</label>
+                                <select class="form-control" th:field="*{book}" id="bookName">
+                                <!-- <select th:field="*{books}"> -->
+                                <option value="0">Select Book</option>
+                                	<option th:each="bookRow:${books}" th:value="${bookRow.bookId}" th:text="${bookRow.title}"></option>
+                                </select>
+                               <!--  <input type="text" id="bookName" th:field="*{book}" name="bookName" 
+                                placeholder="Please enter book name" class="form-control" required> -->
+                            </div>
+                            <div>
+                                <label>Issued By</label>
+                                <select class="form-control" th:field="*{issuedBy}" id="issuedBy">
+                                	<option value="0">Select Staff</option>
+                                	<option th:each="staffRow:${staffs}" th:value="${staffRow.staffId}" th:text="${staffRow.staffName}"></option>
+                                </select>
+                                <!-- <input type="text" id="issuedBy" th:field="*{issuedBy}" name="issuedBy" 
+                                placeholder="Please enter staff name" class="form-control" required> -->
+                            </div>
+                            <div>
+                                <label>Issued Date</label>
+                                <input type="date" id="issuedDate" th:field="*{issuedDate}" name="issuedDate" 
+                                 class="form-control" required>
+                            </div>
+                            <div>
+                                <label>Return Date</label>
+                                <input type="date" id="returnDate" th:field="*{returnDate}" name="returnDate" 
+                                class="form-control" required>
+                            </div>
+                        </br>
+                            <div class="footer-body">
+                                <!-- <a class="btn btn-primary" role="button" id="btn1">Add</a> -->
+                                <button type="submit" class="btn btn-primary" id="btn1">Add</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+        <a href="borrower" target="_blank"><h3 style="color: chocolate;">Borrower List</h3></a>
+     </div>
+     <div>
+     	<a href="home" target="_blank"><h3 style="color: chocolate;">Home</h3></a>
+     </div>
+</body>
+<script>
+document.getElementById("btn1").onclick = function(){
+    location.href = "borrower";
+};
+</script>
+</html>

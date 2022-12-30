@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Book</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body{
+          background-image: url('/images/welcome.jpg');
+          min-height: 100%;
+          background-position: center;
+          background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            </br>
+                <h1 class="text-center">Add Book</h1>
+                <div class="card-body">
+                    <div class="form-group">
+                        <form action="/addBook" th:object ="${addBook}"  method="post">
+                            <div class="form-group">
+                                <label>Book Name</label>
+                                <input type="text" id="title" th:field="*{title}" name="title" placeholder="Please enter book name" 
+                                class="form-control" required>
+                            </div>
+                            <div>
+                                <label>Number of Copies</label>
+                                <input type="number" id="numOfCopies" th:field="*{numberOfCopies}" name="numOfCopies" 
+                                placeholder="Please enter total Copies" class="form-control" required>
+                            </div>
+                            <div>
+                                <label>Author Name</label>
+                                <input type="text" id="authorName" th:field="*{authorName}" name="authorName" 
+                                placeholder="Please enter author name" class="form-control" required>
+                            </div>
+                            <div>
+                                <label>Publisher Name</label>
+                                <input type="text" id="publisherName" th:field="*{publisherName}" name="publisherName" 
+                                placeholder="Please enter publisher name" class="form-control" required>
+                            </div>
+                        </br>
+                            <div class="footer-body">
+                                <!-- <a class="btn btn-primary" role="button" id="btn1" type="submit">Add</a> -->
+                                <button type="submit" class="btn btn-primary" id="btn1">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+        <a href="bookList" target="_blank"><h3 style="color: chocolate;">Book List</h3></a>
+     </div>
+     <div>
+     	<a href="home" target="_blank"><h3 style="color: chocolate;">Home</h3></a>
+     </div>
+</body>
+
+<script>
+document.getElementById("btn1").onclick = function(){
+    location.href = "bookList";
+};
+</script>
+</html>

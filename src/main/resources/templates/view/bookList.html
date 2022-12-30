@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body{
+          background-image: url('/images/welcome.jpg');
+          min-height: 100%;
+          background-position: center;
+          background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="color: chocolate;"> List Of Book</h1>
+        <button type="submit" id="addbtn" class="btn btn-primary" style="background-color: chocolate; color: black;">Add New Book</button>
+    </br>
+    <div>
+     	<a href="home" target="_blank"><h3 style="color: chocolate;">Home</h3></a>
+     </div>
+    </div>
+</br>
+    <div class="contaner">
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="color: chocolate;">Book Name</th>
+                        <th style="color: chocolate;">No. Of Copies</th>
+                        <th style="color: chocolate;">Author Name</th>
+                        <th style="color: chocolate;">Publisher Name</th>
+                        <th style="color: chocolate;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each = "book :${bookList}">
+                        <td th:text = "${book.title}" style="color: chocolate;"></td>
+                        <td th:text = "${book.numberOfCopies}" style="color: chocolate;"></td>
+                        <td th:text = "${book.authorName}" style="color: chocolate;"></td>
+                        <td th:text = "${book.publisherName}" style="color: chocolate;"></td>
+                        <td>
+                            <!-- <button type="submit" class="btn btn-primary" id="update" style="background-color: chocolate; color: black;">Update</button> -->
+                            <!-- <button type="submit" class="btn btn-primary" id="delete" style="background-color: chocolate; color: black;">Delete</button> -->
+                            <a th:href = "@{/deleteBooks/{id}(id=${book.bookId})}" class="btn btn-primary" style="background-color: chocolate; color: black;">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</body>
+<script>
+    document.getElementById("addbtn").onclick = function(){
+        location.href = "/addBook";
+    };
+
+</script>
+</html>

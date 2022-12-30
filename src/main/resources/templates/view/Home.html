@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body,h1 {font-family: "Raleway", sans-serif}
+        body, html {height: 100%}
+        body{
+          background-image: url('/images/welcome.jpg');
+          min-height: 100%;
+          background-position: center;
+          background-size: cover;
+        }
+        .btn{
+            margin-left: 20px;
+            margin-right: 50px;
+        }
+        .container.btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            padding: 16px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .container.btn:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body >
+    <div class="container">
+    </br>
+        <div class="row">
+            <div class="btn">
+                <div class="w3-display-middle">
+                    <!-- <p class="w3-large w3-center">35 days left</p> -->
+                    <button class="btn btn-primary" type="button" id="btn1">Student</button>
+                    <input class="btn btn-primary" type="button" value="Book" id="btn2">
+                    <input class="btn btn-primary" type="button" value="Borrower" id="btn3">
+                    <input class="btn btn-primary" type="button" value="Register" id="btn4">
+                    <input class="btn btn-primary" type="button" value="Staff" id="btn5">
+                  </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("btn1").onclick = function(){
+        location.href = "studentList";
+    };
+
+    document.getElementById("btn2").onclick = function(){
+        location.href = "bookList";
+    };
+    
+    document.getElementById("btn3").onclick = function(){
+        location.href = "borrower";
+    };
+
+    document.getElementById("btn4").onclick = function(){
+        location.href = "addNewUser";
+    };
+    document.getElementById("btn5").onclick = function(){
+        location.href = "staffList";
+    };
+    
+
+</script>
+</html>
